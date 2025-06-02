@@ -1,0 +1,15 @@
+<launch>
+    <!-- 比赛导航节点 -->
+    <node pkg="competition_nav" type="competition_nav_node" name="competition_nav" output="screen"/>
+    
+    <!-- 语音采集节点 -->
+    <node name="voice_collect" pkg="robot_audio" type="voice_collect_node" output="screen">
+        <param name="audio_file" type="string" value="./AIUI/audio/audio.wav"/>
+    </node>
+    
+    <!-- 语音服务节点 -->
+    <node pkg="robot_audio" type="voice_aiui_node" name="voice_aiui_node"/>
+    
+    <!-- 导航系统 -->
+    <include file="$(find bobac3_navigation)/launch/demo_nav_2d.launch"/>
+</launch>
