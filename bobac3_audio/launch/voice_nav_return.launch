@@ -1,0 +1,12 @@
+<launch>
+    <!-- 语音导航节点 -->
+    <node pkg="bobac3_audio" type="voice_nav_return_node" name="voice_nav_return" output="screen"/>
+    
+    <!-- 语音采集节点 -->
+    <node name="voice_collect" pkg="robot_audio" type="voice_collect_node" output="screen">
+        <param name="audio_file" type="string" value="./AIUI/audio/audio.wav"/>
+    </node>
+    
+    <!-- 语音服务节点 -->
+    <node pkg="robot_audio" type="voice_aiui_node" name="voice_aiui_node"/>
+</launch>
